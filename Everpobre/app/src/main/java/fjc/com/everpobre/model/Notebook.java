@@ -7,6 +7,15 @@ public class Notebook {
     private int id;
     private String name;
 
+    public Notebook(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    private Notebook(){
+        //Desactivo el constructor por defecto
+    }
+
     public int getId() {
         return id;
     }
