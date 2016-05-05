@@ -10,6 +10,7 @@ public class Notebooks {
 
     List<Notebook> notebooks;
 
+    //factory static method
     public static Notebooks createNotebooks(List <Notebook> notebooks){
 
         Notebooks myNotebooks = new Notebooks();
