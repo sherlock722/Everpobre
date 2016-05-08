@@ -1,9 +1,11 @@
 package fjc.com.everpobre.model;
 
+import java.io.Serializable;
+
 /**
  * Created by javier on 5/5/16.
  */
-public class Notebook {
+public class Notebook implements Serializable{
     public static final String DEFAULT_NAME = "John Doe";
     private long id;
     private String name;

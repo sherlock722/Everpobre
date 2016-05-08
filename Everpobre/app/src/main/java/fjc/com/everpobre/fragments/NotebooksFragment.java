@@ -1,18 +1,23 @@
 package fjc.com.everpobre.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment; //Siempre de la libreria de soporte
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fjc.com.everpobre.Constants;
 import fjc.com.everpobre.R;
+import fjc.com.everpobre.activities.AddEditNotebookActivity;
 import fjc.com.everpobre.adapters.NotebookAdapter;
+import fjc.com.everpobre.model.Notebook;
 import fjc.com.everpobre.model.Notebooks;
 import fjc.com.everpobre.model.db.dao.NotebookDAO;
 
@@ -48,7 +53,24 @@ public class NotebooksFragment extends Fragment {
 
         //Adaptador
         NotebookAdapter adapter = new NotebookAdapter(notebooks, getActivity());
+
+        //Recojo el click ejecutado sobre las filas del ReciclerView
+        adapter.setOnElementClickListener(new NotebookAdapter.OnElementClick<Notebook>() {
+            @Override
+            public void clickedOn(Notebook notebook, int position) {
+
+                Log.d("Clicker", "Clicker");
+
+                //Se llama a una nueva actividad pasandole el contexto
+                Intent i = new Intent(getActivity(), AddEditNotebookActivity.class);
+                i.putExtra(Constants.FJC_COM_EVERPOBRE_NOTEBOOKTOEDIT, notebook);
+                startActivity(i);
+
+            }
+        });
+
         notebookRecyclerView.setAdapter(adapter);
+
 
         return view;
     }

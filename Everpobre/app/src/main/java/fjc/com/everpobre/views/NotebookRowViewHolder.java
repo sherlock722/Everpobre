@@ -24,7 +24,7 @@ public class NotebookRowViewHolder extends RecyclerView.ViewHolder {
         super(rowNotebook);
 
         //notebookNameTextView = (TextView) rowNotebook.findViewById(R.id.row_notebook_notebook_name);
-        //La clase en la que estamos this
+        //La clase en la que estamos se le tiene que indicar (this)
         ButterKnife.bind(this, rowNotebook); //Esta linea es igual que la anterior comentada
 
     }

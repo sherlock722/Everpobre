@@ -1,8 +1,7 @@
 package fjc.com.everpobre.activities;
 
-import android.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import fjc.com.everpobre.R;
 import fjc.com.everpobre.fragments.NotebooksFragment;
@@ -18,7 +17,7 @@ public class NotebookListActivity extends AppCompatActivity {
         android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
         if (fm != null){
 
-            //Inyecto un fragmento
+            //Inyecto el fragmento NotebooksFragment
             NotebooksFragment notebooksFragment = new NotebooksFragment();
             fm.beginTransaction()
                     .add(R.id.activity_notebook_fragment_container,notebooksFragment)
