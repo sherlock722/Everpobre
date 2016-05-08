@@ -5,10 +5,10 @@ package fjc.com.everpobre.model;
  */
 public class Notebook {
     public static final String DEFAULT_NAME = "John Doe";
-    private int id;
+    private long id;
     private String name;
 
-    public Notebook(int id, String name) {
+    public Notebook(long id, String name) {
 
         if (name == null || name.isEmpty()){
 
@@ -27,11 +27,11 @@ public class Notebook {
         //Desactivo el constructor por defecto
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
