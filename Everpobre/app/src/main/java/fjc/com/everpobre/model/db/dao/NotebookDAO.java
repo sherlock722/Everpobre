@@ -65,8 +65,9 @@ public class NotebookDAO {
         //El null que aparece en el insert es el nullColumnHack - Sirve para abrir huecos en la tabla
         long id = db.getWritableDatabase().insert(DBConstants.TABLE_NOTEBOOK, null, this.getContentValues(notebook));
 		notebook.setId(id);
-		db.close();
-		db=null;
+		db.close();//Cierro la conexion
+
+        //db=null;
 
 		return id;
 	}
@@ -95,7 +96,7 @@ public class NotebookDAO {
         int numberOfRowsUpdated = db.getWritableDatabase().update(DBConstants.TABLE_NOTEBOOK, this.getContentValues(notebook), DBConstants.KEY_NOTEBOOK_ID + "=?", new String[]{"" + id});
 
         db.close();
-		db=null;
+		//db=null;
 		return numberOfRowsUpdated;
 	}
 
@@ -109,7 +110,7 @@ public class NotebookDAO {
 			db.getWritableDatabase().delete(DBConstants.TABLE_NOTEBOOK, DBConstants.KEY_NOTEBOOK_ID + " = " + id, null); //null marcador de posición
 		}
 		db.close();
-		db=null;
+		//db=null;
 	}
 
     //Borrar la tabla
